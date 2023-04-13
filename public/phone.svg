@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+	<title>Nouveau projet</title>
+	<defs>
+		<image  width="100" height="100" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkAQMAAABKLAcXAAAAAXNSR0IB2cksfwAAAAZQTFRFAAAA////pdmf3QAAAAJ0Uk5TAP9bkSK1AAABBklEQVR4nJXTwbGDIBSF4cuwYEkJlGJpWpodvBYsIUsWDkQwF+//MnGSrPKNI+fgBRGJu5hfLQaxVvvIKhxahhI0HVqHZqi+abvR40b5RvvXKl+r3mn5XfNvGnnTmwq0Qxm6vmDCHDi/hEknu2Q7EhnaPyn8lzlZHgmUQxeHnpTgvAj21z4aZcpMUEI1bj6iTER8OON9HjoCYxlbym2xVWuXFpuN5lfqOWrNOW+LbqzPzOlQ+zy9jr8VLUHvU6tWg96g/udP70xXVTlIqBmaoARFKEAectAI3MRGbGIjNrERq9iIUw7S3qvYZRaxL77kIaHONnbAlzzUE69jE6G26sc7c7z5kCd2RxUmMWREUwAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+	</style>
+	<use id="phone" href="#img1" x="0" y="0"/>
+</svg>

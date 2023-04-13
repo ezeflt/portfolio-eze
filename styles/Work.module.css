@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@700&family=Secular+One&display=swap');
+@font-face {
+    font-family: 'Myriad Pro Bold';
+    font-style: normal;
+    font-weight: bold;
+    src: local('Myriad Pro Bold'), url('/MYRIADPRO-BOLD.woff') format('woff');
+    }
+    
+.WorkPage{
+    overflow:visible;
+    height: 850px;
+    width:100%;
+    z-index: 60;
+    background-color: #10101a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.boxWork{
+    height: 80%;
+    width: 100%;
+    
+}
+.cardWork{
+    margin-top: -2%;
+    height: 700px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.card{
+    width: 780px;
+    height: 72%;
+    background: linear-gradient(180deg,rgba(35,37,49,.5),rgba(15,15,24,.5));
+    border-radius: 60px;
+    margin-left: 25%;
+    margin-right: 10px;
+    margin-bottom: 0%;
+    z-index: 200;
+    backdrop-filter: blur(10px);
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    border: 1px solid #20222e;
+    order: 1 !important;
+}
+
+.control-dots{
+    order: 2 !important;
+    visibility: visible;
+    position: absolute !important;
+    margin-top: 10% !important;
+    margin: 0px 0px !important;
+    padding: 0 !important;
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+    margin-top: 10%;
+}
+.titleWork{
+    color: rgba(108, 108, 111, 1);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 4em;
+    text-shadow: 1px 0 rgba(108, 108, 111, 1), -1px 0 rgba(108, 108, 111, 1), 0 1px rgba(108, 108, 111, 1), 0 -1px rgba(108, 108, 111, 1), 1px 1px rgba(108, 108, 111, 1), -1px -1px rgba(108, 108, 111, 1), 1px -1px rgba(108, 108, 111, 1), -1px 1px rgba(108, 108, 111, 1);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.NumberBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 100px;
+    width: 100%;
+    top: 640px;
+    z-index: 100;
+    display: none;
+}
+.tools{
+    height: auto;
+    width: 120px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.spanTools{
+    color: #8b8b8b;
+    font-family: IBM Plex Mono,monospace;
+    font-size: 0.6em;
+    margin-left: -10%;
+    text-transform: uppercase;
+    rotate: 90deg;
+    margin: 30px 10px;
+}
+.boxImg{
+    height: 100%;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.img{
+    height: 80%;
+    width: 100%;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.span{
+    position: absolute;
+    bottom: 90px;
+    padding: 2px 10px;
+    color: rgb(255, 255, 255);
+    opacity: 0.5;
+    z-index: 200;
+    text-align: center;
+    font-size: 0.7em;
+    width: auto;
+    height: 5%;
+    background: rgba(217, 217, 217, 0.05);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "IBM Plex Mono", monospace;
+    text-transform: uppercase;
+}
+.info{
+    height: 77%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+.bar{
+    height: 1px;
+    right: 200;
+    position: absolute;
+    width: 10%;
+    background: #7B7B7B;
+    transition: 200ms;
+}
+.bar:hover{
+    height: 1px;
+    right: 200;
+    position: absolute;
+    width: 22%;
+    background: #7B7B7B;
+    transition: 200ms;
+}
+.boxTitle{
+    height: 33%;
+    width: 80%;
+}
+.title{
+    color: #fff;
+    text-transform: uppercase;
+    display: flex;
+    text-align: start;
+    font-family: Myriad Pro Bold;
+    font-size: 3em;
+    width: 100%;
+    height: 100%;
+}
+.boxVisit{
+    height: 40%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: center;
+}
+.spanVisit{
+    cursor: pointer;
+    font-family: IBM Plex Mono,monospace;
+    font-size: 1em;
+    margin: 15px 0;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 10px 0px;
+}
+.boxGitHub{
+    height: 27%;
+    width: 80%;
+    display: flex;
+
+}
+@media screen and ( max-width : 1326px ) {
+    .card{
+        margin-left: 24%;
+    }
+}
+@media screen and ( max-width : 1250px ) {
+    .card{
+        scale: 0.95;
+        margin-left: 25%;
+    }
+}
+@media screen and ( max-width : 1050px ) {
+    .card{
+        scale: 0.92;
+        margin-left: 26%;
+    }
+}
+@media screen and ( max-width : 1000px ) {
+    .card{
+        scale: 0.9;
+    }
+}
+@media screen and ( max-width : 900px ) {
+    .card{
+        scale: 0.9;
+        width: 110%;
+    }
+}
+@media screen and ( max-width : 850px ) {
+    .card{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: 800px;
+        width: 85%;
+    }
+    .tools{
+        display: none;
+    }
+    .info{
+        width: 100%;
+    }
+    .boxTitle{
+        width: 90%;
+        height: 10px;
+    }
+    .boxVisit{
+        width: 90%;
+    }
+    .boxGitHub{
+        width: 90%; 
+        height: 35%;
+    }
+    .img{
+        height: 100%;
+    }
+    .span{
+        bottom: 0px;
+        top: 300px;
+    }
+    .boxImg{
+        margin-top: 40px;
+    }
+    .title{
+        font-size: 2.5em;
+    }
+    .spanVisit{
+        font-size: 1.15em;
+    }
+    .bar{
+        width: 20%;
+    }
+}
+@media screen and ( max-width : 640px ) {
+    .card{
+        height: 800px;
+        width: 100%;
+    }
+}
+@media screen and ( max-width : 500px ) and ( max-height: 850px) {
+    .card{
+        height: 740px;
+        width: 120%;
+        scale: 0.8;
+    }
+    .NumberBox{
+        display: flex;
+    }
+    .img{
+        height: 100%;
+    }
+}
+@media screen and ( max-width : 500px ) and ( max-height: 700px) {
+    .card{
+        height: 740px;
+        width: 140%;
+        scale: 0.8;
+    }
+    .NumberBox{
+        display: flex;
+        top: 680px;
+    }
+    .titleWork{
+        font-size: 2.5em;
+        letter-spacing: 0.08em;
+    }
+}
+@media screen and ( max-width : 500px ) {
+    .card{
+        height: 740px;
+        width: 120%;
+        scale: 0.8;
+    }
+    .NumberBox{
+        display: flex;
+    }
+    .spanVisit{
+        font-size: 1.2em;
+    }
+    .bar{
+        width: 30%;
+    }
+}
+@media screen and ( max-width : 430px ) {
+    .card{
+        height: 740px;
+        width: 150%;
+        scale: 0.7;
+    }
+}
+@media screen and ( max-width : 400px ) and ( max-height: 850px) {
+    .card{
+        height: 740px;
+        width: 140%;
+        scale: 0.7;
+    }
+}
+@media screen and ( max-width : 400px ) and ( max-height: 700px) {
+    .card{
+        height: 720px;
+        width: 150%;
+        scale: 0.65;
+        margin-left: 90px;
+    }
+    .NumberBox{
+        display: flex;
+        top: 700px;
+    }
+}
+
+@media screen and ( max-width : 335px ) {
+    .card{
+        height: 740px;
+        width: 160%;
+        scale: 0.6;
+    }
+}

@@ -1,0 +1,47 @@
+{
+  "name": "nextjs-template",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3007",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-regular-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@reduxjs/toolkit": "^1.9.3",
+    "autoprefixer": "^10.4.14",
+    "fortawesome": "^0.0.1-security",
+    "gsap": "3.6.0",
+    "locomotive-scroll": "^4.1.4",
+    "next": "12.1.6",
+    "react": "18.1.0",
+    "react-app-polyfill": "^3.0.0",
+    "react-dom": "18.1.0",
+    "react-is": "^18.2.0",
+    "react-locomotive-scroll": "^0.2.2",
+    "react-responsive-carousel": "^3.2.23",
+    "react-router-dom": "^6.10.0",
+    "react-spring": "^9.7.1",
+    "react-tsparticles": "^2.9.3",
+    "react-typed": "^1.2.0",
+    "skrollr": "^0.6.26",
+    "styled-components": "^5.3.9",
+    "tslib": "^2.5.0",
+    "tsparticles": "^2.9.3",
+    "tsparticles-engine": "^2.9.3"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^9.0.1",
+    "jest": "^28.1.0",
+    "jest-environment-jsdom": "^28.1.0",
+    "next-transpile-modules": "^10.0.0"
+  }
+}
