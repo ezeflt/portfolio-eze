@@ -161,7 +161,7 @@ function Home() {
         {activeBackground&&(
           <Background links={link} />
         )}
-        <Presentation myTools={toolsRef}/>
+        {/* <Presentation myTools={toolsRef}/> */}
         <div ref={backgroundT}></div> 
         <Techno ref={toolsRef} /> 
         
