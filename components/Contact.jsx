@@ -4,9 +4,7 @@ import gsap from 'gsap'
 
 const Contact = () => {
 
-
   function masquerErreursEtAvertissements(message, source, ligne) {
-    // Ne rien faire pour les messages d'erreur ou d'avertissement
   }
   console.error = masquerErreursEtAvertissements;
   console.warn = masquerErreursEtAvertissements;

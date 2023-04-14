@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { useLayoutEffect, useState } from 'react';
+import { useState } from 'react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import gsap from 'gsap'
 import styles from '../styles/Techno.module.css'
 import { useRef } from 'react';
-import { useEffect } from 'react';
+import { useEffect , lazyz } from 'react';
 
 
 const Techno = () => {
@@ -13,6 +13,7 @@ const Techno = () => {
       }
       console.error = masquerErreursEtAvertissements;
       console.warn = masquerErreursEtAvertissements;
+
     const [maj, setMaj]= useState(true);
     const [imageBox, setImageBox] = useState('nodeColor.png');
     const [safariImageBox, setSafariImageBox] = useState('');
@@ -282,7 +283,7 @@ const Techno = () => {
     if(safar){
         return(
                 
-        <div id='first' className={styles.home2}>
+        <div className={styles.home2}>
         <div className={styles.header2}>
             <span className={`${styles["header-txt2"]}`}>TECHNO</span>
         </div>
@@ -312,7 +313,7 @@ const Techno = () => {
         )
     }else{
         return (
-            <div id='first' className={styles.home2}>
+            <div className={styles.home2}>
                 <div className={styles.header2}>
                     <span className={`${styles["header-txt2"]}`}>TECHNO</span>
                 </div>
@@ -384,7 +385,6 @@ const Techno = () => {
     
                     </div>
                     <div style={{scale:scale}} className={styles.test2}>
-                        {/* <img src='codeColor.png' className='svg' style={{marginLeft: '93%', marginTop:'15%', height:'30px', width:'15px'}} /> */}
                         {cubeCode}
                     </div>
                     <div style={{scale:scale}} className={styles.test3}>

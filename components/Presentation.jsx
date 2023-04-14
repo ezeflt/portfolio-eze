@@ -8,7 +8,7 @@ import styles from '../styles/Presentation.module.css'
 import { useState } from 'react';
 
 
-const Presentation = (props) => {
+const Presentation = () => {
     function masquerErreursEtAvertissements(message, source, ligne) {
         // Ne rien faire pour les messages d'erreur ou d'avertissement
       }
@@ -21,20 +21,7 @@ const Presentation = (props) => {
   const [safar, setSafari] = useState(false);
   const [chrome, setChrome] = useState(false);
 
-  const handleClick = () => {
-    // if (props.myTools.current) {
-    //   gsap.to(window, {
-    //     scrollTo: {
-    //       y: props.myTools.current.offsetTop || 0,
-    //       autoKill: false
-    //     },
-    //     duration: 1
-    //   });
-    // } else {
-    //   console.log('myTools.current is null or undefined');
-    // }
-  };
-
+  
     const cardAnime=()=>{
       gsap.fromTo(card.current, {y:-10}, {y:10, repeat:-1, yoyo:'true', duration:3})
     }
@@ -72,7 +59,7 @@ const Presentation = (props) => {
                 </div>
                 <div className={styles.navBar}>
                   <div className={styles.line}></div>
-                  <span onClick={()=>handleClick()} className={styles.btnNav}>My Tools</span>
+                  <span className={styles.btnNav}>My Tools</span>
                   <span className={styles.btnNav}>My projects</span>
                   <span className={styles.btnNav}>Contact me</span>
                 </div>

@@ -356,7 +356,7 @@
 }
 .imgSafari{
     height: 50px ;
-    width: auto;
+    width: 50px;
 }
 .boxBorderSkillSafari:hover{
     cursor: pointer;
@@ -907,7 +907,7 @@
     }
     .imgSafari{
         height: 40px ;
-        width: auto;
+        width: 40px;
     }
 }
 
@@ -941,7 +941,7 @@
     }
     .imgSafari{
         height: 42px ;
-        width: auto;
+        width: 42px;
     }
     .boxToolSafari{
         z-index: 200;
@@ -988,7 +988,7 @@
     }
     .imgSafari{
         height: 40px ;
-        width: auto;
+        width: 40px;
     }
     .boxToolSafari{
         z-index: 200;
@@ -1041,7 +1041,7 @@
     }
     .imgSafari{
         height: 35px ;
-        width: auto;
+        width: 35px;
     }
     .boxToolSafari{
         z-index: 200;
@@ -1107,7 +1107,7 @@
     }
     .imgSafari{
         height: 30px ;
-        width: auto;
+        width: 30px;
     }
     .boxToolSafari{
         z-index: 200;
@@ -1163,7 +1163,7 @@
     }
     .imgSafari{
         height: 27px ;
-        width: auto;
+        width: 27px;
     }
     .boxToolSafari{
         z-index: 200;
@@ -1219,7 +1219,7 @@
     }
     .imgSafari{
         height: 26px ;
-        width: auto;
+        width: 26px;
     }
     .boxToolSafari{
         z-index: 200;

@@ -2,33 +2,31 @@ import styles from '../styles/Home.module.css';
 import Background from './background/Background';
 import gsap from 'gsap'
 import { useEffect, useRef, useState } from 'react';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import Work from './Work';
 import Techno from './Techno';
 import Contact from './Contact';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-import Presentation from './Presentation';
-import Work from './Work';
 import Typed from 'react-typed';
+import Presentation from './Presentation';
 
 function Home() {
 
   function masquerErreursEtAvertissements(message, source, ligne) {
-    // Ne rien faire pour les messages d'erreur ou d'avertissement
   }
   console.error = masquerErreursEtAvertissements;
   console.warn = masquerErreursEtAvertissements;
 
   const [link, setLink] = useState(0.5)
+  const [typed, setTyped]= useState(true)
   const [activeBackground, setActiveBackground]=useState(true)
   const backgroundT = useRef(null)
   const backgroundW = useRef(null)
   const backgroundC = useRef(null)
   const toolsRef = useRef(null);
 
-  const PresentationRef = useRef(null)
   const ContactRef = useRef(null)
   gsap.registerPlugin(ScrollTrigger);
   const TL = gsap.timeline()
-
 
   useEffect(()=>{
 
@@ -57,7 +55,8 @@ function Home() {
       onStart:()=>console.log('start'),
       onComplete:()=>(
         document.removeEventListener('wheel', disableScroll),
-        document.removeEventListener('keydown', disableKeyboardScroll)
+        document.removeEventListener('keydown', disableKeyboardScroll),
+        setTyped(false)
       )
     },5)
 
@@ -143,24 +142,26 @@ function Home() {
 
   return (
     <>
+    {typed&&(
     <div id='startAnimation' className={styles.g}>
-          <Typed
-            className={styles.spantxt}
-            strings={[
-                'Welcome to my website',
-                'have a good time',
-              ]}
-                typeSpeed={30}
-                backSpeed={30}
-                >
-                <span></span>
-            </Typed>
+        <Typed
+        className={styles.spantxt}
+        strings={[
+            'Welcome to my website',
+            'have a good time',
+          ]}
+            typeSpeed={30}
+            backSpeed={30}
+            >
+            <span></span>
+        </Typed>
         </div>
+          )}
       <div id='body' className={styles.body} >
         {activeBackground&&(
           <Background links={link} />
         )}
-        {/* <Presentation myTools={toolsRef} ref={PresentationRef} /> */}
+        <Presentation myTools={toolsRef}/>
         <div ref={backgroundT}></div> 
         <Techno ref={toolsRef} /> 
         
