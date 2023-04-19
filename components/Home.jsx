@@ -8,9 +8,43 @@ import Techno from './Techno';
 import Contact from './Contact';
 import Typed from 'react-typed';
 import Presentation from './Presentation';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 function Home() {
 
+  let menuMobileStyle = {
+    opacity: 0,
+    position:"fixed",
+    visibility: "hidden",
+    transition: "all .3s",
+    top: 0,
+    left: 0,
+    height: "100vh",
+    width: 0,
+    backgroundColor: "black",
+  };
+
+  const [afficherMenu, setAfficherMenu] = useState(false);
+
+  let iconmenu = faBars;
+
+  if (afficherMenu) {
+    iconmenu = faXmark;
+    menuMobileStyle = {
+      zIndex: 10005,
+      opacity: 1,
+      visibility: "visible",
+      transition: "all .3s",
+      position: "fixed",
+      top: 0,
+      left: 0,
+      height: "100vh",
+      width: "100vw",
+      backgroundColor: "black",
+    };
+  }
   function masquerErreursEtAvertissements(message, source, ligne) {
   }
   console.error = masquerErreursEtAvertissements;
@@ -142,7 +176,7 @@ function Home() {
 
   return (
     <>
-    {typed&&(
+    {/* {typed&&(
     <div id='startAnimation' className={styles.g}>
         <Typed
         className={styles.spantxt}
@@ -156,16 +190,15 @@ function Home() {
             <span></span>
         </Typed>
         </div>
-          )}
+          )} */}
       <div id='body' className={styles.body} >
         {activeBackground&&(
-          <Background links={link} />
+          <Background  links={link} />
         )}
-        {/* <Presentation myTools={toolsRef}/> */}
+        <Presentation myTools={toolsRef}/>
         <div ref={backgroundT}></div> 
         <Techno ref={toolsRef} /> 
-        
-        <div ref={backgroundW}></div>
+        <div  id='myworks' ref={backgroundW}></div>
         <Work />
         
         <div ref={backgroundC}></div>

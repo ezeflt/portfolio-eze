@@ -83,7 +83,7 @@ const Contact = () => {
                       </span>
                   </div>
                 </div>
-                <span className={styles.spanBottomB}>My portfolio 20/01/2023 ©</span>
+                <span id='contact' className={styles.spanBottomB}>My portfolio 20/01/2023 ©</span>
                 <span className={styles.spanBottomC}>feltenezechiel1@gmail.com</span>
               </div>
             </div>

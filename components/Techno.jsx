@@ -1,10 +1,10 @@
-/* eslint-disable jsx-a11y/alt-text */
 import { useState } from 'react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import gsap from 'gsap'
 import styles from '../styles/Techno.module.css'
 import { useRef } from 'react';
-import { useEffect , lazyz } from 'react';
+import { useEffect } from 'react';
+import { faL } from '@fortawesome/free-solid-svg-icons';
 
 
 const Techno = () => {
@@ -78,7 +78,6 @@ const Techno = () => {
         return () => window.removeEventListener("resize", resize);
 
     },[maj, gsapAnime])
-
 
     const image = [
         {src: 'htmlColor.png', title: 'HTML', time: '1 Years'},
@@ -282,12 +281,11 @@ const Techno = () => {
     })
     if(safar){
         return(
-                
-        <div className={styles.home2}>
+        <div id="mytools" className={styles.home1}>
         <div className={styles.header2}>
             <span className={`${styles["header-txt2"]}`}>TECHNO</span>
         </div>
-        <div className={styles.main2}>
+        <div   className={styles.main2}>
             {/* <img src='look.png' className='me' /> */}
             {safar&&(
                 <>
@@ -297,7 +295,7 @@ const Techno = () => {
                 <div className={styles.boxToolSafari}>
                 <div className={styles.boxParameterSafari}>
                     <div style={{width:'100%', height:'15%', display:'flex', alignItems:'center', justifyContent:'center'}}>
-                        <span className={styles.txt2} style={{color:'#fff', fontSize:'1.5rem', textTransform:'uppercase', margin:'10px 0px'}}> My tools</span>
+                        {/* <span className={styles.txt2} style={{color:'#fff', fontSize:'1.5rem', textTransform:'uppercase', margin:'10px 0px'}}> My tools</span> */}
                     </div>
                     <div className={styles.boxInfoSafari}>
                         <div className={styles.boxInfosSkillSafari}>
@@ -315,7 +313,7 @@ const Techno = () => {
         return (
             <div className={styles.home2}>
                 <div className={styles.header2}>
-                    <span className={`${styles["header-txt2"]}`}>TECHNO</span>
+                    <span id="mytools" className={`${styles["header-txt2"]}`}>TECHNO</span>
                 </div>
                 <div className={styles.main2}>
                     {/* <img src='look.png' className='me' /> */}

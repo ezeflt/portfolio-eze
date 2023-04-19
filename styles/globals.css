@@ -15,3 +15,10 @@ body {
 * {
   box-sizing: border-box;
 }
+.no-scroll{
+  position: fixed;
+  overflow: hidden;
+}
+html{
+  scroll-behavior: smooth;
+}
