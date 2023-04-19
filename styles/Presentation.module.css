@@ -489,7 +489,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 2px solid red;
+        /* border: 2px solid red; */
         margin-top: 200px;
       }
 }
