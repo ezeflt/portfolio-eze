@@ -176,7 +176,7 @@ function Home() {
 
   return (
     <>
-    {/* {typed&&(
+    {typed&&(
     <div id='startAnimation' className={styles.g}>
         <Typed
         className={styles.spantxt}
@@ -190,7 +190,7 @@ function Home() {
             <span></span>
         </Typed>
         </div>
-          )} */}
+          )}
       <div id='body' className={styles.body} >
         {activeBackground&&(
           <Background  links={link} />
