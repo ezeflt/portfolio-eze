@@ -517,6 +517,12 @@
       }
 }
 @media screen and (max-width: 650px) {
+  .home {
+    transform: initial;
+  }
+  .home2 {
+    transform: initial;
+  }
   .home2{
     flex-direction: column;
   }
