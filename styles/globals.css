@@ -24,7 +24,6 @@ html{
 @media screen and ( min-width : 500px) {
   * {
     box-sizing: border-box;
-    transform:perspective(0px) ;
   }
   html{
     scroll-behavior:auto;
