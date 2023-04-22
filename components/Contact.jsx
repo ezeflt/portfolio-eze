@@ -73,7 +73,7 @@ const Contact = () => {
                   <div className={styles.boxR}>
                     <img src='git.png' style={{width:'auto', height:`${imgGitHub}`}} /> 
                     <span className={styles.spanBottomG}>
-                        Git hub
+                        GitHub
                       </span>
                   </div>
                   <div className={styles.boxR}>

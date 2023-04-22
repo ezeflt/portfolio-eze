@@ -10,8 +10,8 @@
 .home2 > button {
   z-index: 10005;
   display: none;
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
   border: none;
   background-color: transparent;
   position: absolute;
@@ -28,6 +28,8 @@
   justify-content: flex-end;
 }
 .home {
+  transform:perspective(0px) ;
+
   display: none;
   height: 800px;
   width: 100%;
@@ -35,6 +37,8 @@
   flex-direction: column;
 }
 .home2 {
+  transform:perspective(0px) ;
+
   display: flex;
   align-items: center;
   height: 100%;
@@ -84,10 +88,11 @@
   }
 .menuMobileStyle {
   display: none;
-  height: 100vh;
+  height: 1000px;
   position: relative;
   display: flex;
   align-items: center;
+  z-index: 2000;  
 }
 .ulMenu > li {
   cursor: pointer;
@@ -97,15 +102,19 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  line-height: 5rem;
+  line-height: 6rem;
   font-size: 2rem;
   font-family: "IBM Plex Mono", monospace;
-  height: 100vh;
+  height: 80%;
   list-style: none;
   color: #6c6c6f;
   justify-content: center;
   align-items: center;
-  background: #060810;
+  text-transform: uppercase;
+  background: #10101a !important;
+  z-index: 2000;
+  display: flex;
+  padding: 0;
 }
 
 .ulMenu > li > a {
@@ -113,6 +122,7 @@
   font-size: 2rem;
   cursor: pointer;
   color: white;
+  z-index: 2000;
 }
 .main {
   display: flex;
@@ -205,15 +215,20 @@
   margin-top: 2rem;
   gap: 1rem;
 }
-.blockButtons > button {
+.blockButtons > a {
   border: none;
   color: white;
   background-color: #6c6c6f;
   font-family: IBM Plex Mono, monospace;
-
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85em;
   border-radius: 0.2rem;
   padding: 0.5rem;
   width: 8rem;
+  cursor: pointer;
 }
 .blockPresentation > span {
   display: block;
@@ -221,14 +236,13 @@
   font-family: IBM Plex Mono, monospace;
   font-size: 2em;
   width: 100%;
-  
 }
 .spanBottom {
   color: #6c6c6f;
   font-family: IBM Plex Mono, monospace;
 }
 .boxEzechiel {
-    backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -238,10 +252,8 @@
   top: 30%;
   right: 10rem;
   background: rgba(217, 217, 217, 0.03);
-  transform: perspective(400px) rotateY(-35deg) perspective(18000px) rotateX(10deg);
+  transform: perspective(400px) rotateY(0deg) perspective(18000px) rotateX(0deg);
   scale: 1.2;
-    /* transform: perspective(0) rotateY(-0) perspective(0)
-    rotateX(0); */
   border-radius: 20px;
   border: 1px solid rgba(166, 166, 166, 0.2);
   cursor: pointer;
@@ -401,10 +413,10 @@
 @media screen and (max-width: 1200px) {
     .boxEzechiel{
         right: 5rem;
-        scale: 1;
+        scale: 1.1;
     }
     .home2 > ul{
-        font-size: 1.3em;
+        font-size: 1.5em;
     }
     .blockPresentation {
         scale: 0.9;
@@ -432,6 +444,9 @@
   .spantxt {
     font-size: 2.1rem;
   }
+  .home2 > ul{
+    font-size: 1.4em;
+}
   /* .home2 > button {
     display: block;
     position: fixed;
@@ -453,6 +468,14 @@
 }
 }
 @media screen and (max-width: 650px) {
+  .home2 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    /* background-color: #10101a; */
+    position: relative;
+    scroll-snap-align: start;
+  }
     .blockPresentation{
         width: 100%;
         margin-left: 0px;
@@ -466,7 +489,7 @@
         font-size: 1.5em;
         text-align: center;
       }
-      .blockButtons > button {
+      .blockButtons > a {
         border: none;
         color: white;
         background-color: #6c6c6f;
@@ -493,19 +516,23 @@
         margin-top: 200px;
       }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 650px) {
+  .home2{
+    flex-direction: column;
+  }
     .boxEzechiel{
         scale: 1;
         top: 32rem;
+        position: static;
     }
     .blockPresentation > span {
         font-size: 1.3em;
         text-align: center;
       }
-    .blockPresentation{
-        margin-top: -25rem;
+      .blockPresentation{
+        margin-top: 8rem;
+        margin-bottom: 12rem;
     }
-    
 }
 @media screen and (max-width: 450px) and ( max-height: 850px) {
     .boxEzechiel{
@@ -516,22 +543,24 @@
         font-size: 1.3em;
         text-align: center;
       }
-    .blockPresentation{
-        margin-top: -25rem;
+      .blockPresentation{
+        margin-top: 8rem;
+        margin-bottom: 12rem;
     }
     
 }
-@media screen and (max-width: 450px) and ( max-height: 700px) {
+@media screen and (max-width: 450px) and ( max-height: 600px) {
     .boxEzechiel{
-        scale: 0.8;
-        top: 27rem;
+        scale: 0.9;
+        margin-top: -40px;
     }
     .blockPresentation > span {
         font-size: 1.3em;
         text-align: center;
       }
     .blockPresentation{
-        margin-top: -10rem;
+        margin-top: 8rem;
+        margin-bottom: 12rem;
     }
 }
 @media screen and (max-width: 370px) {
@@ -539,6 +568,23 @@
         font-size: 1.2em;
         text-align: center;
         width: 90%;
+      }
+    
+}
+@media screen and (max-width: 350px) {
+    .blockPresentation > span {
+        font-size: 1em;
+        text-align: center;
+        width: 90%;
+      }
+      .blockButtons > a{
+        scale: 0.9;
+      }
+      .boxReseaux{
+        scale: 0.9;
+      }
+      .boxEzechiel{
+        scale: 0.8;
       }
     
 }

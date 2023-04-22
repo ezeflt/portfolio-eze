@@ -97,6 +97,8 @@
     transform: translateX(-100%);
 }
 .home2{
+    transform:perspective(0px) ;
+
     z-index: 2;
     height: 1000px;
     width: 100%;
@@ -127,7 +129,8 @@
     text-shadow: 1px 0 rgba(108, 108, 111, 1), -1px 0 rgba(108, 108, 111, 1), 0 1px rgba(108, 108, 111, 1), 0 -1px rgba(108, 108, 111, 1),
     1px 1px rgba(108, 108, 111, 1), -1px -1px rgba(108, 108, 111, 1), 1px -1px rgba(108, 108, 111, 1), -1px 1px rgba(108, 108, 111, 1);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  
+    cursor: pointer;
+    z-index: 5000;
 }
 .main2{
     display: flex;
@@ -237,7 +240,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    width: 40%;
+    width: 600px;
     height: auto;
     /* background: rgba(0, 0, 255, 0.05); */
     backdrop-filter: blur(10px);
@@ -269,7 +272,7 @@
     margin-top: -22%;
     /* background: rgba(0, 0, 255, 0.05); */
     backdrop-filter: blur(10px);
-    transform: perspective(400px)rotateY(+35deg)perspective(18000px) rotateX(5deg);
+    /* transform: perspective(400px)rotateY(+35deg)perspective(18000px) rotateX(5deg); */
     border-radius: 20px;
     border: 1px solid rgba(166, 166, 166, 0.2);
 }
@@ -645,6 +648,11 @@
         scale: 0.9;
     }
 
+}
+@media screen and ( max-width : 1435px ) {
+    .boxToolSafari{
+        width: 40%;
+    }
 }
 @media screen and ( max-width : 1304px ) {
     .main2{

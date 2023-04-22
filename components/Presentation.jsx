@@ -9,16 +9,33 @@ import { useRouter } from "next/router";
 import styles from "../styles/Presentation.module.css";
 import { useState } from "react";
 
-const Presentation = () => {
+const Presentation = (props) => {
+
+  const [mobile, setMobile] = useState(false)
+
+  useEffect(()=>{
+    const resize = () => {
+      if (window.innerWidth <= 500) {      
+        setMobile(true);
+        console.log(mobile);
+      }
+  };
+  resize();
+  window.addEventListener("resize", resize);
+
+  return () => window.removeEventListener("resize", resize);
+  },[mobile])
+
   let menuMobileStyle = {
     opacity: 0,
+    display:'none',
     visibility: "hidden",
     transition: "all .3s",
     top: 0,
     left: 0,
-    height: "100vh",
-    width: 0,
-    backgroundColor: "black",
+    height: "100%",
+    width: '80%',
+    backgroundColor: "#10101a",
   };
 
   const [afficherMenu, setAfficherMenu] = useState(false);
@@ -28,16 +45,17 @@ const Presentation = () => {
   if (afficherMenu) {
     iconmenu = faXmark;
     menuMobileStyle = {
-      zIndex: 10005,
+      display:'block',
+      zIndex: 10000,
       opacity: 1,
       visibility: "visible",
       transition: "all .3s",
       position: "fixed",
       top: 0,
       left: 0,
-      height: "100vh",
-      width: "100vw",
-      backgroundColor: "#060810",
+      height: "100%",
+      width: "100%",
+      backgroundColor: "#10101a",
     };
   }
   function masquerErreursEtAvertissements(message, source, ligne) {
@@ -51,13 +69,10 @@ const Presentation = () => {
   const flecheDown = useRef(null);
   const [safar, setSafari] = useState(false);
   const [chrome, setChrome] = useState(false);
+  const [refresh, setRefresh] = useState(false);
 
   const cardAnime = () => {
-    gsap.fromTo(
-      card.current,
-      { y: -10 },
-      { y: 10, repeat: -1, yoyo: "true", duration: 3 }
-    );
+    gsap.fromTo(card.current,{ y: -10 },{ y: 10, repeat: -1, yoyo: "true", duration: 5 });
   };
   const cardAnime2 = () => {
     gsap.fromTo(
@@ -74,17 +89,11 @@ const Presentation = () => {
     );
   };
   useEffect(() => {
-    if (
-      typeof navigator !== "undefined" &&
-      navigator.userAgent.indexOf("Chrome") !== -1
-    ) {
+    if (typeof navigator !== "undefined" &&navigator.userAgent.indexOf("Chrome") !== -1) {
       // Pour Chrome
       console.log("chrome");
       setChrome(true);
-    } else if (
-      typeof navigator !== "undefined" &&
-      navigator.userAgent.indexOf("Safari") !== -1
-    ) {
+    } else if (typeof navigator !== "undefined" &&navigator.userAgent.indexOf("Safari") !== -1) {
       // Pour Safari
       console.log("safari");
       setSafari(true);
@@ -92,7 +101,24 @@ const Presentation = () => {
     cardAnime();
     cardAnime2();
     flecheDownAnime();
-  }, []);
+  }, [props.anime]);
+
+  // const click=()=>{
+  //   setRefresh(!refresh)
+  //   if(refresh){
+  //     gsap.to('#cardEze', {y: -10,transform:'perspective(400px) rotateY(-35deg) perspective(18000px) rotateX(10deg)', duration:2})
+  //   }else{
+  //     gsap.to('#cardEze', {y: -10,transform:'perspective(400px) rotateY(0deg) perspective(18000px) rotateX(0deg)', duration:2})
+  //   }  
+  // }
+
+  const open =()=>{
+    if(afficherMenu){
+      gsap.to('#cardEze', {y: -10,transform:'perspective(400px) rotateY(-35deg) perspective(18000px) rotateX(10deg)', duration:0})
+    }else{
+      gsap.to('#cardEze', {y: -10,transform:'perspective(400px) rotateY(0deg) perspective(18000px) rotateX(0deg)', duration:0})
+    }
+  }
 
   return (
     <>
@@ -129,77 +155,6 @@ const Presentation = () => {
               <span></span>
             </Typed>
           </div>
-          {/* <div ref={card} className={styles.boxEzechiel}>
-            <div className={styles.heightBox}>
-              <div className={styles.boxImg}>
-                <img src='BW1.png' className={styles.ih} />
-              </div>
-              <div className={styles.boxDescription}>
-                <span
-                  className={styles.txt}
-                  style={{ margin: "5px 0px", opacity: "0.7" }}
-                >
-                  Felten Ezechiel
-                </span>
-                <span
-                  className={styles.shadow}
-                  style={{
-                    color: "#fff",
-                    textAlign: "center",
-                    margin: "5px 0px",
-                    opacity: "0.7",
-                  }}
-                >
-                  Frontend Developer
-                </span>
-                <div className={styles.localE}>
-                  <span className={styles.spanBottom}>Age:</span><span className={styles.spanBottom}>20 <span style={{fontSize:'13px'}}>years</span></span>
-                </div>
-                <div className={styles.localE}>
-                  <span className={styles.spanBottom}>Country:</span>
-                  <span className={styles.spanBottom}>Belgium</span>
-                </div>
-                <div className={styles.localE}>
-                  <span className={styles.spanBottom}>languages:</span>
-                  <span className={styles.spanBottom}>French</span>
-                </div>
-                <div className={styles.localE}>
-                  <span className={styles.spanBottom}> </span>
-                  <span
-                    style={{ fontSize: "14px" }}
-                    className={styles.spanBottom}
-                  >
-                    English
-                  </span>
-                </div>
-                <div className={styles.EzeReseau}>
-                  <img
-                    src="lin.png"
-                    style={{ height: "20px" }}
-                    onClick={() =>
-                      (window.location.href =
-                        "https://www.linkedin.com/in/ezechiel-felten-475693248/")
-                    }
-                  />
-                  <img
-                    src="git.png"
-                    style={{ height: "20px" }}
-                    onClick={() =>
-                      (window.location.href = "https://github.com/ezeflt")
-                    }
-                  />
-                  <img
-                    src="twitter.png"
-                    style={{ height: "15px" }}
-                    onClick={() =>
-                      (window.location.href =
-                        "https://twitter.com/toujours_plus_")
-                    }
-                  />
-                </div>
-              </div>
-            </div>
-          </div> */}
           <div className={styles.scrollDown}>
             <img
               src="scroll.png"
@@ -214,8 +169,63 @@ const Presentation = () => {
         </div>
       </div>
       <div className={styles.home2}>
-      <div className={styles.boxPhoneEzechiel}>
-      <div ref={card}className={styles.boxEzechiel}>
+      <div className={styles.blockPresentation}>
+          <Typed
+            className={styles.spantxt}
+            strings={[
+              "Hello everyone",
+              "Are you a customer ?",
+              "Are you a recruiter ?",
+              "Are you a start up ?",
+              "no matter",
+              "You are",
+              "You are in the right place",
+            ]}
+            typeSpeed={30}
+            backSpeed={30}
+            backDelay={1000}
+            f
+            loop
+          ></Typed>
+          <span>
+            Felten Ezechiel Portfolio <span style={{fontSize:'0.6em'}}>©</span>
+          </span>
+          <span>
+            Frontend Developer web & mobile.
+          </span>
+          <span>
+            UI|UX Design.
+          </span>
+          <div className={styles.blockButtons}>
+            <a>About Me</a>
+            <a href="Cv Felten Ezechiel.pdf" download>Download CV</a>
+          </div>
+          <div className={styles.boxReseaux}>
+            <img
+              src="lin.png"
+              style={{ cursor: "pointer", height: "28px", width: "auto" }}
+              onClick={() =>
+                mobile?(window.location.href = "https://www.linkedin.com/in/ezechiel-felten-475693248/"): window.open("https://www.linkedin.com/in/ezechiel-felten-475693248/", "_blank")
+              }
+            />
+            <img
+              src="git.png"
+              style={{ cursor: "pointer", height: "30px", width: "auto" }}
+              onClick={() =>
+                mobile?(window.location.href = "https://github.com/ezeflt"): window.open("https://github.com/ezeflt", "_blank")
+              }
+            />
+            <img
+              src="insta.png"
+              style={{ cursor: "pointer", height: "30px", width: "auto" }}
+              onClick={() =>
+                mobile?(window.location.href = "https://www.instagram.com/eze_flt/"): window.open("https://www.instagram.com/eze_flt/", "_blank")
+              }
+            />
+          </div>
+        </div>
+      {/* <div className={styles.boxPhoneEzechiel}> */}
+      <div id="cardEze" ref={card}className={styles.boxEzechiel}>
             <div className={styles.heightBox}>
               <div className={styles.boxImg}>
                 <img src='BW1.png' className={styles.ih} />
@@ -263,27 +273,25 @@ const Presentation = () => {
                     src="lin.png"
                     style={{ height: "20px" }}
                     onClick={() =>
-                      (window.location.href =
-                        "https://www.linkedin.com/in/ezechiel-felten-475693248/")
+                      mobile?(window.location.href = "https://www.linkedin.com/in/ezechiel-felten-475693248/"): window.open("https://www.linkedin.com/in/ezechiel-felten-475693248/", "_blank")
                     }
                   />
                   <img
                     src="git.png"
                     style={{ height: "20px" }}
                     onClick={() =>
-                      (window.location.href = "https://github.com/ezeflt")
+                      mobile?(window.location.href = "https://github.com/ezeflt"): window.open("https://github.com/ezeflt", "_blank")
                     }
                   />
                   <img
                     src="twitter.png"
                     style={{ height: "15px" }}
                     onClick={() =>
-                      (window.location.href =
-                        "https://twitter.com/toujours_plus_")
+                      mobile?(window.location.href = "https://twitter.com/toujours_plus_"): window.open("https://twitter.com/toujours_plus_", "_blank")
                     }
                   />
                 </div>
-              </div>
+              {/* </div> */}
             </div>
           </div>
           </div>
@@ -292,7 +300,7 @@ const Presentation = () => {
             <li
             onClick={
               ()=>{
-
+                open()
                 setAfficherMenu(!afficherMenu)  
           
               }
@@ -300,35 +308,28 @@ const Presentation = () => {
             >
               <a href="#body">Home</a>
             </li>
-            <li
-             onClick={
-              ()=>{
-
-                setAfficherMenu(!afficherMenu)  
-          
-              }
-            }>
-              <a href="#mytools">My tools</a>
+            <li onClick={()=>{open() ,setAfficherMenu(!afficherMenu) }}>
+              <a href="#tools">tools</a>
             </li>
             <li
              onClick={
               ()=>{
-
+                open()
                 setAfficherMenu(!afficherMenu)  
           
               }
             }>
-              <a href="#myworks">My projects</a>
+              <a href="#title">projects</a>
             </li>
             <li
              onClick={
               ()=>{
-
+                open()
                 setAfficherMenu(!afficherMenu)
           
               }
             }>
-              <a href="#contact">Contact me</a>
+              <a href="#contact">Contact</a>
             </li>
           </ul>
         </div>
@@ -349,67 +350,14 @@ const Presentation = () => {
         </ul>
 
         <button
+        id="btn"
           onClick={() => {
             setAfficherMenu(!afficherMenu);
+            open()
           }}
         >
-          <FontAwesomeIcon icon={iconmenu} color={"#626266"} />
+          <FontAwesomeIcon fontSize={'2px'} icon={iconmenu} color={"#626266"} />
         </button>
-        <div className={styles.blockPresentation}>
-          <Typed
-            className={styles.spantxt}
-            strings={[
-              "Hello everyone",
-              "Are you a customer ?",
-              "Are you a recruiter ?",
-              "Are you a start up ?",
-              "no matter",
-              "You are",
-              "You are in the right place",
-            ]}
-            typeSpeed={30}
-            backSpeed={30}
-            backDelay={1000}
-            loop
-          ></Typed>
-          <span>
-            Felten Ezechiel Portfolio <span style={{fontSize:'0.6em'}}>©</span>
-          </span>
-          <span>
-            Frontend Developer web & mobile.
-          </span>
-          <span>
-            UI|UX Design.
-          </span>
-          <div className={styles.blockButtons}>
-            <button>About Me</button>
-            <button>Download CV</button>
-          </div>
-          <div className={styles.boxReseaux}>
-            <img
-              src="lin.png"
-              style={{ cursor: "pointer", height: "28px", width: "auto" }}
-              onClick={() =>
-                (window.location.href =
-                  "https://www.linkedin.com/in/ezechiel-felten-475693248/")
-              }
-            />
-            <img
-              src="git.png"
-              style={{ cursor: "pointer", height: "30px", width: "auto" }}
-              onClick={() =>
-                (window.location.href = "https://github.com/ezeflt")
-              }
-            />
-            <img
-              src="insta.png"
-              style={{ cursor: "pointer", height: "30px", width: "auto" }}
-              onClick={() =>
-                (window.location.href = "https://www.instagram.com/eze_flt/")
-              }
-            />
-          </div>
-        </div>
         </div>
     </>
   );

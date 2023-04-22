@@ -19,6 +19,7 @@ const Techno = () => {
     const [safariImageBox, setSafariImageBox] = useState('');
     const [titleBox, setTitleBox] = useState('Node Js');
     const [time, setTime] = useState('7 Months');
+    const [start, setStart] = useState('2022');
     const [test, setTest] = useState(false);
     const [safar, setSafari] = useState(false);
     const [chrome, setChrome] = useState(false);
@@ -43,7 +44,6 @@ const Techno = () => {
             console.log('safari');
             setSafari(true)
           }
-        gsap.fromTo(imgRef.current, {x:'30px', autoAlpha:0},{x:'0px', autoAlpha:1})
         const resize = async () => {
             if (window.innerWidth < 1300) {
                 setScale('0.85');
@@ -79,19 +79,24 @@ const Techno = () => {
 
     },[maj, gsapAnime])
 
+    const change =()=>{
+        setChrome(!chrome);
+        setSafari(!safar);
+    }
+
     const image = [
-        {src: 'htmlColor.png', title: 'HTML', time: '1 Years'},
-        {src: 'cssColor.png', title: 'CSS', time: '1 Years'},
-        {src: 'jsColor.png', title: 'JavaScript', time: '7 Months'},
-        {src: 'tsColor.png', title: 'Typescript', time: '1 Months'},
-        {src: 'php4.png', title: 'PHP', time: '3 Months'},
-        {src: 'symfony.png', title: 'Symfony', time: '3 Months'},
-        {src: 'reactColor.png', title: 'React Js', time: '7 Months'},
-        {src: 'nodeColor.png', title: 'Node Js', time: '7 Months'},
-        {src: 'sql.png', title: 'SQL', time: '3 Months'},
-        {src: 'mysql.png', title: 'My SQL', time: '3 Months'},
-        {src: 'gitMauve.png', title: 'Git Hub', time: '7 Months'},
-        {src: 'mongoColor.png', title: 'Mongo DB', time: '7 Months'},
+        {src: 'htmlColor.png', title: 'HTML', time: '1 Years', startYears:'2022'},
+        {src: 'cssColor.png', title: 'CSS', time: '1 Years' , startYears:'2022'},
+        {src: 'jsColor.png', title: 'JavaScript', time: '7 Months' , startYears:'2022'},
+        {src: 'tsColor.png', title: 'Typescript', time: '1 Months' , startYears:'2023'},
+        {src: 'php4.png', title: 'PHP', time: '3 Months' , startYears:'2023'},
+        {src: 'symfony.png', title: 'Symfony', time: '3 Months' , startYears:'2023'},
+        {src: 'reactColor.png', title: 'React Js', time: '7 Months' , startYears:'2022'},
+        {src: 'nodeColor.png', title: 'Node Js', time: '7 Months' , startYears:'2022'},
+        {src: 'sql.png', title: 'SQL', time: '3 Months' , startYears:'2023'},
+        {src: 'mysql.png', title: 'My SQL', time: '3 Months' , startYears:'2023'},
+        {src: 'gitMauve.png', title: 'GitHub', time: '7 Months' , startYears:'2022'},
+        {src: 'mongoColor.png', title: 'Mongo DB', time: '7 Months' , startYears:'2022'},
     ]
 
     const cubeReact = (
@@ -252,25 +257,27 @@ const Techno = () => {
     const box = image.map((data, i)=>{
         return(
             !safar ?(
-                <div className={!safar? `${styles.boxBorderSkills}`: `${styles.boxBorderSkillSafari}`} key={i} onClick={()=>(
+                <div className={styles.boxBorderSkills} key={i} onClick={()=>(
                     setImageBox(data.src),
                     console.log(imageBox),
                     setTest(!test),
                     console.log(test),
                     setTitleBox(data.title),
-                    setTime(data.time)
-
+                    setTime(data.time),
+                    setStart(data.startYears)
                 )}>
                     <img src={data.src} className={!safar ? `${styles.img}`:`${styles.imgSafari}`} />
                 </div>
             ) : (
                 <div style={{display:'flex', justifyContent:'center', alignItems:'center', flexDirection:'column', margin:'10px'}} >
-                <div className={!safar? `${styles.boxBorderSkills}`: `${styles.boxBorderSkillSafari}`} key={i} onClick={()=>(
-                    setImageBox(data.src),
-                    setTest(!test),
-                    setTitleBox(data.title),
-                    setGsapAnime(!gsapAnime),
-                    setSafariImageBox(data.src)          
+                <div className={styles.boxBorderSkillSafari} key={i} onClick={()=>(
+                    console.log('oou'),
+                    gsap.fromTo('#imgRef', {x:'30px', autoAlpha:0},{x:'0px', autoAlpha:1}),
+                    // setImageBox(data.src),
+                    // setTest(!test),
+                    // setTitleBox(data.title),
+                    // setGsapAnime(!gsapAnime),
+                    setSafariImageBox(data.src)
                 )}>
                     <img src={data.src} className={!safar ? `${styles.img}`:`${styles.imgSafari}`} />
                 </div>
@@ -281,16 +288,16 @@ const Techno = () => {
     })
     if(safar){
         return(
-        <div id="mytools" className={styles.home1}>
+        <div style={{display:`${chrome && 'none'}`}}  id="mytools" className={styles.home1}>
         <div className={styles.header2}>
-            <span className={`${styles["header-txt2"]}`}>TECHNO</span>
+            <span onClick={()=>change()} className={`${styles["header-txt2"]}`}>TECHNO</span>
         </div>
-        <div   className={styles.main2}>
+        <div id='tools' className={styles.main2}>
             {/* <img src='look.png' className='me' /> */}
             {safar&&(
                 <>
                 {imgFloat&&(
-                    <div ref={imgRef} className={styles.imgFloat}><img style={{height:'250px', width:'auto'}} src={safariImageBox} /></div>
+                    <div id='imgRef' ref={imgRef} className={styles.imgFloat}><img style={{height:'250px', width:'auto'}} src={safariImageBox} /></div>
                 )}
                 <div className={styles.boxToolSafari}>
                 <div className={styles.boxParameterSafari}>
@@ -311,14 +318,12 @@ const Techno = () => {
         )
     }else{
         return (
-            <div className={styles.home2}>
+            <div  style={{display:`${safar && 'none'}`}} className={styles.home2}>
                 <div className={styles.header2}>
-                    <span id="mytools" className={`${styles["header-txt2"]}`}>TECHNO</span>
+                    <span onClick={()=>change()} id="mytools" className={`${styles["header-txt2"]}`}>TECHNO</span>
                 </div>
                 <div className={styles.main2}>
-                    {/* <img src='look.png' className='me' /> */}
-                    
-                        <div className={styles.boxTools}>
+                        <div style={{transform:" perspective(400px)rotateY(+35deg)perspective(18000px) rotateX(5deg)"}} className={styles.boxTools}>
                         <div className={styles.boxParameter}>
                             <div style={{width:'100%', height:'15%', display:'flex', alignItems:'center', justifyContent:'center'}}>
                                 <span className={styles.txt2} style={{color:'#fff', fontSize:'1.5rem', textTransform:'uppercase'}}> My tools</span>
@@ -349,8 +354,8 @@ const Techno = () => {
                                         <span className={styles.spanBottom} style={{fontSize:'1rem'}}> {time}</span>
                                     </div>
                                     <div style={{height:'auto', width:'80%', display:'flex', alignItems:'center', justifyContent:'space-between',margin:'0px 0px'}}>
-                                        <span className={styles.spanBottom} style={{fontSize:'1rem'}}>Time spent:</span>
-                                        <span className={styles.spanBottom} style={{fontSize:'1rem'}}> {time}
+                                        <span className={styles.spanBottom} style={{fontSize:'1rem'}}>Start year:</span>
+                                        <span className={styles.spanBottom} style={{fontSize:'1rem'}}>In {start}
                                         </span>
                                     </div>
                                 </div>

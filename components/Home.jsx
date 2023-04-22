@@ -50,12 +50,13 @@ function Home() {
   console.error = masquerErreursEtAvertissements;
   console.warn = masquerErreursEtAvertissements;
 
-  const [link, setLink] = useState(0.5)
-  const [typed, setTyped]= useState(true)
-  const [activeBackground, setActiveBackground]=useState(true)
-  const backgroundT = useRef(null)
-  const backgroundW = useRef(null)
-  const backgroundC = useRef(null)
+  const [link, setLink] = useState(0.5);
+  const [typed, setTyped]= useState(true);
+  const [activeBackground, setActiveBackground]=useState(true);
+  const [props, setProps] = useState(false);
+  const backgroundT = useRef(null);
+  const backgroundW = useRef(null);
+  const backgroundC = useRef(null);
   const toolsRef = useRef(null);
 
   const ContactRef = useRef(null)
@@ -64,13 +65,15 @@ function Home() {
 
   useEffect(()=>{
 
-    setTimeout(()=>{
-      const scrollToOptions = {
-        top: 0,
-        behavior: "smooth"
-      };
-      window.scrollTo(scrollToOptions);
-    },2000)
+  !props &&(
+    setTimeout(async()=>{
+      window.location.replace('#body');
+      await window.scrollTo({
+        top: document.querySelector('#body').offsetTop,
+        behavior: 'smooth'
+      });
+    },500)
+  )
 
     const disableScroll = e => {
       e.preventDefault();
@@ -81,18 +84,25 @@ function Home() {
         e.preventDefault();
       }
     }
-    document.addEventListener('wheel', disableScroll, { passive: false });
-    document.addEventListener('keydown', disableKeyboardScroll, { passive: false });
+    !props&&(
+      document.addEventListener('wheel', disableScroll, { passive: false }),
+      document.addEventListener('keydown', disableKeyboardScroll, { passive: false })
+    )
 
-    gsap.to('#startAnimation', 
+    !props&&(
+      gsap.to('#startAnimation', 
     {y: '-100%', ease : 'Expo.easeIn',
       onStart:()=>console.log('start'),
-      onComplete:()=>(
-        document.removeEventListener('wheel', disableScroll),
-        document.removeEventListener('keydown', disableKeyboardScroll),
+      onComplete:async()=>(
+        await document.removeEventListener('wheel', disableScroll),
+        await document.removeEventListener('keydown', disableKeyboardScroll),
+        await setTyped(false),
+        await gsap.to('#cardEze', {y: -10,transform:'perspective(400px) rotateY(-35deg) perspective(18000px) rotateX(10deg)', duration:1.5}),
+        await setProps(true),
         setTyped(false)
       )
     },5)
+    )
 
     TL.to(backgroundT.current,
       {
@@ -167,6 +177,9 @@ function Home() {
           if (window.innerWidth <= 500) {
             setActiveBackground(false)
           }
+          if (window.innerWidth <= 1000) {
+            setActiveBackground(false)
+          }
       };
       resize();
       window.addEventListener("resize", resize);
@@ -195,7 +208,7 @@ function Home() {
         {activeBackground&&(
           <Background  links={link} />
         )}
-        <Presentation myTools={toolsRef}/>
+        <Presentation anime={props} myTools={toolsRef}/>
         <div ref={backgroundT}></div> 
         <Techno ref={toolsRef} /> 
         <div  id='myworks' ref={backgroundW}></div>
