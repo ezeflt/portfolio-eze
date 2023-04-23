@@ -224,7 +224,7 @@ const Presentation = (props) => {
             />
           </div>
         </div>
-      {/* <div className={styles.boxPhoneEzechiel}> */}
+      <div className={styles.boxPhoneEzechiel}>
       <div id="cardEze" ref={card}className={styles.boxEzechiel}>
             <div className={styles.heightBox}>
               <div className={styles.boxImg}>
@@ -291,7 +291,7 @@ const Presentation = (props) => {
                     }
                   />
                 </div>
-              {/* </div> */}
+              </div>
             </div>
           </div>
           </div>

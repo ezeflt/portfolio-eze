@@ -25,6 +25,7 @@ const Techno = () => {
     const [chrome, setChrome] = useState(false);
     const [imgFloat, setImgFloat] = useState(false);
     const [gsapAnime, setGsapAnime] = useState(false);
+    const [defaultBox, setDefaultBox] = useState(false);
     const imgRef = useRef(null);
     const [scale, setScale] = useState('1');
     const React = useRef(null)
@@ -52,10 +53,11 @@ const Techno = () => {
                 setScale('0.85');
             }
             if (window.innerWidth < 1270 ) {
-                setSafari(true)
+                setSafari(true);
+                setDefaultBox(true);
             }
             if (window.innerWidth > 1270 && chrome) {
-                setSafari(false)
+                setSafari(false);
             }
             if (window.innerWidth < 1200) {
             }  
@@ -288,7 +290,7 @@ const Techno = () => {
     })
     if(safar){
         return(
-        <div style={{display:`${chrome && 'none'}`}}  id="mytools" className={styles.home1}>
+        <div style={{display:`${chrome&&!defaultBox ? 'none':'block'}`}}  id="mytools" className={styles.home1}>
         <div className={styles.header2}>
             <span onClick={()=>change()} className={`${styles["header-txt2"]}`}>TECHNO</span>
         </div>

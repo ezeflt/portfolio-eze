@@ -6,9 +6,9 @@ function App({ Component, pageProps }) {
   return (
     <>
       <Head>          
-      <meta name="viewport" content="width=device-width, user-scalable=no" />
+      <meta name="description" content="Portfolio déveloper frontend, Ezechiel Felten portfolio" />
       <link rel="icon" href="/jquery.png" />
-        <title>Ezechiel Felten</title>
+        <title>Ezechiel Felten portfolio Developer frontend</title>
       </Head>
       <Component {...pageProps} />
     </>
