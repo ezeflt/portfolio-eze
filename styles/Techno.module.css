@@ -105,6 +105,21 @@
     background-color: #10101a;
     scroll-snap-align: start;
 }
+.btn{
+    height: 40px;
+    width: 20px;
+    background: #000;
+    margin-right: -30px;
+    margin-left: 5px;
+    margin-top: 2px;
+    border-radius: 10px;
+    z-index: 10000;
+    display: flex;
+    border: 1px solid #2e2f32;
+    justify-content: center;
+
+}
+
 .home1{
     z-index: 2;
     height: 800px;
@@ -120,6 +135,19 @@
     align-items: center;
     justify-content: center;
     position: absolute;
+}
+.btn{
+    height: 40px;
+    width: 20px;
+    background: #000;
+    margin-right: -30px;
+    margin-left: 5px;
+    margin-top: 2px;
+    border-radius: 10px;
+    z-index: 10000;
+    display: flex;
+    border: 1px solid #2e2f32;
+    justify-content: center;
 }
 .header-txt2{
     color:rgba(108, 108, 111, 1);
@@ -673,6 +701,9 @@
         position: relative;
         /* bottom: 10px; */
         visibility: visible;
+    }
+    .btn{
+        margin-top: 10%;
     }
     .header-txt2{
         color:rgba(108, 108, 111, 1);

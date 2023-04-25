@@ -240,8 +240,8 @@ useEffect(()=>{
     const projectsData = [
       {
         title: 'Twitter clone', infoWebsite:'Twitter website' ,img:'https://res.cloudinary.com/db9qvgg30/image/upload/v1681701261/t_ahi9u8.png', 
-        linkWeb: '', linkGitHub:'https://github.com/ezeflt/twitter-clone', 
-        color:'#2b5687', background: true, imageInfo:'twit.png', imageInfo1:'twit.png',
+        linkWeb: 'https://twitter-clone-front-silk.vercel.app/', linkGitHub:'https://github.com/ezeflt/twitter-clone', 
+        color:'#2b5687', background: true, imageInfo:'https://res.cloudinary.com/db9qvgg30/image/upload/v1682407092/twit_nvnltd.png',
         Techno:{t1:'React', t2:'Next', t3:'Node Js', t4:'Express', t5:'Mongo DB'},
 
         info: `Clone Twitter provides a complete social media experience. You can create an account
@@ -252,10 +252,9 @@ useEffect(()=>{
             `
       },
       {
-        title: 'Ok Voiture', infoWebsite:'Car location website' ,img:'https://res.cloudinary.com/db9qvgg30/image/upload/v1681701539/okVoiture_md2rae.png', 
-        linkWeb: '', linkGitHub:'https://github.com/ezeflt/okVoiture-location-website', 
-        color:'#f5547e', imageInfo:'okV.png', 
-        background: true, Techno:{t1:'React', t2:'Next', t3:'Node Js', t4:'Express', t5:'Mongo DB'},
+        title: 'cinetic flix', linkWeb: 'https://cinetic.vercel.app/',infoWebsite:'' ,img:'https://res.cloudinary.com/db9qvgg30/image/upload/v1682406874/cinema_ix80o6.png', 
+        color:'#f04242', imageInfo:'https://res.cloudinary.com/db9qvgg30/image/upload/v1682406966/cineticWeb_e14ik5.png', 
+        background: true, Techno:{t1:'React', t2:'Next', t3:'Font-awesome', t4:'Antd', t5:'react-animated'},
 
         info: `Welcome to OkVoiture, the ultimate car rental website. With OkVoiture, you can easily rent a car, add your own cars to our marketplace,
          and filter your searches to find the perfect vehicle for your needs. And with our user-friendly interface,
@@ -264,8 +263,8 @@ useEffect(()=>{
       },
       {
         title: 'easy lease', infoWebsite:'B2B commerce Website' ,img:'https://res.cloudinary.com/db9qvgg30/image/upload/v1681701841/easy_ch84m5.png', 
-        linkWeb: '', linkGitHub:'', 
-        color:'#A066CB', background: true, imageInfo:'easyL.png', 
+        linkWeb: 'https://easy-lease-b2-b-frontend.vercel.app/dashboard', linkGitHub:'https://github.com/ezeflt/EasyLease-B2B-website', 
+        color:'#A066CB', background: true, imageInfo:'https://res.cloudinary.com/db9qvgg30/image/upload/v1682406989/easyL_oezrfz.png', 
         Techno:{t1:'React', t2:'Next', t3:'Node Js', t4:'Express', t5:'Mongo DB'},
 
         info: `Introducing EasyLease, the ultimate solution for simplifying the life of business professionals
@@ -277,7 +276,7 @@ useEffect(()=>{
       {
         title: 'locapic map', infoWebsite:'' ,img:'https://res.cloudinary.com/db9qvgg30/image/upload/v1681701801/locapic_oteutv.png', 
         linkWeb: '', linkGitHub:'https://github.com/ezeflt/Localisation-native-app', 
-        color:'#ED7B62', background: false, imageInfo:'loca.png', 
+        color:'#ED7B62', background: false, imageInfo:'https://res.cloudinary.com/db9qvgg30/image/upload/v1682407121/loca_tj7xqp.png', 
         Techno:{t1:'React-Native ', t2:'Expo Js', t3:'Node Js', t4:'Express Js', t5:'Mongo DB'},
 
         info: `Introducing Locapic, the ultimate mobile app for geolocation enthusiasts. Built with React Native
@@ -289,7 +288,7 @@ useEffect(()=>{
       {
         title: 'Selfie Native App', infoWebsite:'Native Applications Selfie' ,img:'https://res.cloudinary.com/db9qvgg30/image/upload/v1681701711/SelfieB_wmx78k.png', 
         linkWeb: '', linkGitHub:'https://github.com/ezeflt/Selfie-app-native', 
-        color:'#75d7ff', background: true, imageInfo:'selfi.png', 
+        color:'#75d7ff', background: true, imageInfo:'https://res.cloudinary.com/db9qvgg30/image/upload/v1682407281/selfi_myg5ls.png', 
         Techno:{t1:'React-Native ', t2:'Expo Js', t3:'Node Js', t4:'Express Js', t5:'Mongo DB'},
 
         info: `With Selfie Native App, you have the ability to take photos from any angle, anywhere, and add each photo to your online gallery
@@ -329,6 +328,7 @@ useEffect(()=>{
                           <span 
                          onMouseLeave={()=>animationBar && !safar?LineLeave(i): false} 
                          onMouseEnter={()=>animationBar && !safar?LineEnter(i): false}
+                         onClick={()=>window.open(`${data.linkWeb}`,'target_blank')}
                           style={{color:`${data.color}`}}
                             className={styles.spanVisit}>
                               Visite the website

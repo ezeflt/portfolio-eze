@@ -26,25 +26,34 @@ const Techno = () => {
     const [imgFloat, setImgFloat] = useState(false);
     const [gsapAnime, setGsapAnime] = useState(false);
     const [defaultBox, setDefaultBox] = useState(false);
+    const [buttonActive, setButtonActive] = useState(false);
+    const [click, setClick] = useState(true);
     const imgRef = useRef(null);
     const [scale, setScale] = useState('1');
     const React = useRef(null)
     const logo = useRef(null)
+    const BtnRef = useRef(null)
     gsap.registerPlugin(ScrollTrigger);
 
     useEffect(()=>{
-
+        
         gsap.fromTo(logo.current,{y:-10},{y:10, duration:5, repeat:-1, yoyoEase:'power2.easeIn', yoyo:true})
+        gsap.set(BtnRef.current, {background: '#454548', alignItems:'flex-end'});
 
         if (typeof navigator !== 'undefined' && navigator.userAgent.indexOf('Chrome') !== -1) {
             // Pour Chrome
             console.log('chrome');
             setChrome(true)
+                setClick(true);
+                gsap.set(BtnRef.current, {background: '#454548', alignItems:'flex-end'});
           } else if (typeof navigator !== 'undefined' && navigator.userAgent.indexOf('Safari') !== -1) {
             // Pour Safari
             console.log('safari');
             setSafari(true)
+                setClick(false);
+                gsap.set(BtnRef.current, {background: '#000', alignItems:'baseline'});
           }
+
         const resize = async () => {
             if (window.innerWidth < 1300) {
                 setScale('0.85');
@@ -58,6 +67,7 @@ const Techno = () => {
             }
             if (window.innerWidth > 1270 && chrome) {
                 setSafari(false);
+                setDefaultBox(false);
             }
             if (window.innerWidth < 1200) {
             }  
@@ -81,11 +91,15 @@ const Techno = () => {
 
     },[maj, gsapAnime])
 
-    const change =()=>{
-        setChrome(!chrome);
-        setSafari(!safar);
-    }
 
+    const Btn =()=>{
+        setClick(!click);
+        if(!click){
+            gsap.to(BtnRef.current, {background: '#454548', alignItems:'flex-end', duration:0});
+        }else{
+            gsap.to(BtnRef.current, {background: '#000', alignItems:'baseline', duration:0});
+        }
+    }
     const image = [
         {src: 'htmlColor.png', title: 'HTML', time: '1 Years', startYears:'2022'},
         {src: 'cssColor.png', title: 'CSS', time: '1 Years' , startYears:'2022'},
@@ -256,9 +270,18 @@ const Techno = () => {
                     </div>
     )
 
+    const button = (
+        <div
+                onClick={()=>{Btn(), setButtonActive(!buttonActive)}}
+                className={styles.btn}
+                ref={BtnRef}
+            >
+                <img src='btnBall.png' style={{height:'20px', width:'20px', cursor:'pointer'}} />
+            </div>
+    )
     const box = image.map((data, i)=>{
         return(
-            !safar ?(
+            click ?(
                 <div className={styles.boxBorderSkills} key={i} onClick={()=>(
                     setImageBox(data.src),
                     console.log(imageBox),
@@ -268,7 +291,7 @@ const Techno = () => {
                     setTime(data.time),
                     setStart(data.startYears)
                 )}>
-                    <img src={data.src} className={!safar ? `${styles.img}`:`${styles.imgSafari}`} />
+                    <img src={data.src} className={click ? `${styles.img}`:`${styles.imgSafari}`} />
                 </div>
             ) : (
                 <div style={{display:'flex', justifyContent:'center', alignItems:'center', flexDirection:'column', margin:'10px'}} >
@@ -281,22 +304,23 @@ const Techno = () => {
                     // setGsapAnime(!gsapAnime),
                     setSafariImageBox(data.src)
                 )}>
-                    <img src={data.src} className={!safar ? `${styles.img}`:`${styles.imgSafari}`} />
+                    <img src={data.src} className={click ? `${styles.img}`:`${styles.imgSafari}`} />
                 </div>
                 <span className={styles.fontTitleSafari} >{data.title}</span>
             </div>
             )
         )
     })
-    if(safar){
+    if(!click){
         return(
-        <div style={{display:`${chrome&&!defaultBox ? 'none':'block'}`}}  id="mytools" className={styles.home1}>
+        <div style={{display:`${click&&!defaultBox ? 'none':'block'}`}}  id="mytools" className={styles.home1}>
         <div className={styles.header2}>
-            <span onClick={()=>change()} className={`${styles["header-txt2"]}`}>TECHNO</span>
+            <span className={`${styles["header-txt2"]}`}>TECHNO</span>
+            {!defaultBox&& button}
         </div>
         <div id='tools' className={styles.main2}>
             {/* <img src='look.png' className='me' /> */}
-            {safar&&(
+            {!click&&(
                 <>
                 {imgFloat&&(
                     <div id='imgRef' ref={imgRef} className={styles.imgFloat}><img style={{height:'250px', width:'auto'}} src={safariImageBox} /></div>
@@ -320,9 +344,10 @@ const Techno = () => {
         )
     }else{
         return (
-            <div  style={{display:`${safar && 'none'}`}} className={styles.home2}>
+            <div  style={{display:`${!click && 'none'}`}} className={styles.home2}>
                 <div className={styles.header2}>
-                    <span onClick={()=>change()} id="mytools" className={`${styles["header-txt2"]}`}>TECHNO</span>
+                    <span id="mytools" className={`${styles["header-txt2"]}`}>TECHNO</span>
+                    {!defaultBox&& button}
                 </div>
                 <div className={styles.main2}>
                         <div style={{transform:" perspective(400px)rotateY(+35deg)perspective(18000px) rotateX(5deg)"}} className={styles.boxTools}>
