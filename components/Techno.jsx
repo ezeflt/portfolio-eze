@@ -64,6 +64,7 @@ const Techno = () => {
             if (window.innerWidth < 1270 ) {
                 setSafari(true);
                 setDefaultBox(true);
+                setClick(false)
             }
             if (window.innerWidth > 1270 && chrome) {
                 setSafari(false);
@@ -76,10 +77,10 @@ const Techno = () => {
             } if (window.innerWidth > 1200) {
                 setScale('1');
             } if (window.innerWidth <= 1189) {
-                setImgFloat(false)
+                setImgFloat(false);
             }
             if (window.innerWidth > 1189) {
-                setImgFloat(true)
+                setImgFloat(true);
             }
             if (window.innerWidth < 1380) {
             setScale('0.95');
