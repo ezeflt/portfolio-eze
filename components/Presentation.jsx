@@ -270,7 +270,7 @@ const Presentation = (props) => {
               "Are you a customer ?",
               "Are you a recruiter ?",
               "Are you a start up ?",
-              "no matter",
+              "It doesn't matter",
               "You are",
               "You are in the right place",
             ]}
