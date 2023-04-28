@@ -252,7 +252,7 @@ useEffect(()=>{
             `
       },
       {
-        title: 'cinetic flix', linkWeb: 'https://cinetic.vercel.app/',infoWebsite:'' ,img:'https://res.cloudinary.com/db9qvgg30/image/upload/v1682406874/cinema_ix80o6.png', 
+        title: 'cinetic flix', linkWeb: 'https://cinetic.vercel.app/',infoWebsite:'',linkGitHub: 'https://github.com/ezeflt/Cinetic',img:'https://res.cloudinary.com/db9qvgg30/image/upload/v1682406874/cinema_ix80o6.png', 
         color:'#f04242', imageInfo:'https://res.cloudinary.com/db9qvgg30/image/upload/v1682406966/cineticWeb_e14ik5.png', 
         background: true, Techno:{t1:'React', t2:'Next', t3:'Font-awesome', t4:'Antd', t5:'react-animated'},
 

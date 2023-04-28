@@ -175,10 +175,10 @@ function Home() {
     })
       const resize = async() => {
           if (window.innerWidth <= 500) {
-            setActiveBackground(false)
+            setActiveBackground(false);
           }
           if (window.innerWidth <= 1000) {
-            setActiveBackground(false)
+            setActiveBackground(false);
           }
       };
       resize();
