@@ -14,6 +14,7 @@ body {
 
 * {
   box-sizing: border-box;
+  
 }
 .no-scroll{
   position: fixed;
@@ -31,4 +32,7 @@ html{
   html{
     scroll-behavior:auto;
   }
+}
+::selection{
+    background: #fff;
 }

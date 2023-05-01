@@ -275,7 +275,7 @@ useEffect(()=>{
       },
       {
         title: 'locapic map', infoWebsite:'' ,img:'https://res.cloudinary.com/db9qvgg30/image/upload/v1681701801/locapic_oteutv.png', 
-        linkWeb: '', linkGitHub:'https://github.com/ezeflt/Localisation-native-app', 
+        linkWeb: 'https://github.com/ezeflt/Localisation-native-app', linkGitHub:'https://github.com/ezeflt/Localisation-native-app', 
         color:'#ED7B62', background: false, imageInfo:'https://res.cloudinary.com/db9qvgg30/image/upload/v1682407121/loca_tj7xqp.png', 
         Techno:{t1:'React-Native ', t2:'Expo Js', t3:'Node Js', t4:'Express Js', t5:'Mongo DB'},
 
@@ -287,7 +287,7 @@ useEffect(()=>{
       },
       {
         title: 'Selfie Native App', infoWebsite:'Native Applications Selfie' ,img:'https://res.cloudinary.com/db9qvgg30/image/upload/v1681701711/SelfieB_wmx78k.png', 
-        linkWeb: '', linkGitHub:'https://github.com/ezeflt/Selfie-app-native', 
+        linkWeb: 'https://github.com/ezeflt/Selfie-app-native', linkGitHub:'https://github.com/ezeflt/Selfie-app-native', 
         color:'#75d7ff', background: true, imageInfo:'https://res.cloudinary.com/db9qvgg30/image/upload/v1682407281/selfi_myg5ls.png', 
         Techno:{t1:'React-Native ', t2:'Expo Js', t3:'Node Js', t4:'Express Js', t5:'Mongo DB'},
 
