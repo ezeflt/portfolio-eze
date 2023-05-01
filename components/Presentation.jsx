@@ -288,7 +288,7 @@ const Presentation = (props) => {
           <span>UI|UX Design.</span>
           <div className={styles.blockButtons}>
             <a onClick={() => setModalAbout(true)}>About Me</a>
-            <a href="Cv Felten Ezechiel.pdf" download>
+            <a href="Cv. Felten Ezechiel.pdf" download>
               Download CV
             </a>
           </div>
