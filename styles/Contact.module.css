@@ -152,6 +152,11 @@
     left: 40px;
     margin-top: 400px;
 }
+@media screen and ( min-height : 900px) {
+    .main4{
+        height: 1000px;
+    }
+  }
 @media screen and ( max-width : 1350px ) {
     .local{
         scale: 0.9;

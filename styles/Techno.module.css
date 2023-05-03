@@ -636,7 +636,11 @@
     z-index: 210;
     transform: rotateX(180deg) translateZ(20px);
 }
-
+@media screen and ( min-height : 900px ) {
+    .home1{
+        height: 1000px;
+    }
+}
 @media screen and ( max-width : 1380px ) {
     .boxTools{
         z-index: 200;

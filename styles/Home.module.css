@@ -34,6 +34,11 @@
   1px 30px 60px rgba(16,16,16,0.4);
 }
 
+@media screen and ( min-height : 900px) {
+  .body{
+    height: 1000px;
+  }
+}
 @media screen and ( max-width : 600px) {
   .spantxt{
     font-size: 1.5em;

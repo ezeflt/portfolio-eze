@@ -290,6 +290,14 @@
     width: 100%;
     border-radius: 10px;
 }
+@media screen and ( min-height : 900px ) {
+    .WorkPage{
+        height: 1000px;
+    }
+    .boxText{
+        overflow: initial;
+    }
+}
 @media screen and ( max-width : 1326px ) {
     .card{
         margin-left: 24%;

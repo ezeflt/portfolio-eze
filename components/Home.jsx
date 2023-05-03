@@ -50,7 +50,7 @@ function Home() {
   console.error = masquerErreursEtAvertissements;
   console.warn = masquerErreursEtAvertissements;
 
-  const [link, setLink] = useState(0.5);
+  const [link, setLink] = useState(0.6);
   const [typed, setTyped]= useState(true);
   const [activeBackground, setActiveBackground]=useState(true);
   const [props, setProps] = useState(false);
@@ -118,13 +118,13 @@ function Home() {
           onLeave:()=> {
             setLink(0)
             setTimeout(()=>{
-              setLink(0.5)
+              setLink(0.6)
             },1000)
           },
           onEnterBack:()=> {
             setLink(0)
             setTimeout(()=>{
-              setLink(0.5)
+              setLink(0.6)
             },1000)
         },
         }
@@ -143,13 +143,13 @@ function Home() {
           onLeave:()=> {
             setLink(0)
             setTimeout(()=>{
-              setLink(0.35)
+              setLink(0.45)
             },1000)
           },
           onEnterBack:()=> {
             setLink(0)
             setTimeout(()=>{
-              setLink(0.35)
+              setLink(0.45)
             },1000)
         },
         }
