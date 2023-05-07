@@ -91,7 +91,7 @@
     justify-content: space-around;
 }
 .reseauxBox{
-    width: 27%;
+    width: 20%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -203,6 +203,7 @@
     }
     .reseauxBox{
         justify-content: space-around;
+        width: 25%;
     }
 
 }

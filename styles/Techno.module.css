@@ -277,9 +277,9 @@
 .imgFloat{
     position: absolute;
     height: 50%;
-    width: 30%;
+    width: 20%;
     transform: perspective(400px)rotateY(-35deg)perspective(18000px) rotateX(5deg);
-    right: 50px;
+    right: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
