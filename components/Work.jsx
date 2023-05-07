@@ -13,7 +13,7 @@ const WorkPage = () => {
   const [marginL, setMarginL]= useState('12px');
   const [marginB, setMarginB]= useState('0px');
   const [heightImg, setHeightImg]= useState('20px');
-  const [SizeSeemore, SetSizeSeemore]= useState('0.6em');
+  const [SizeSeemore, SetSizeSeemore]= useState('0.7em');
   const [widthDot, setWidthDots]= useState('48px');
   const [heightDot, setHeightDots]= useState('8px');
   const [techno, setTechno]= useState();
@@ -341,7 +341,8 @@ useEffect(()=>{
                             setInfo(data.info),
                             setTechno(data.Techno),
                             setColor(data.color)
-                            }} className={styles.spanVisit} style={{fontSize:`${SizeSeemore}`}}>see more</a>
+                            }} className={styles.spanVisit} style={{fontSize:`${SizeSeemore}`}}>see more descrription
+                          </a>
                         </div>
                         <div className={styles.boxGitHub}>
                           <a style={{cursor:'pointer', height:`${heightImg}`,marginRight:'5px'}}>

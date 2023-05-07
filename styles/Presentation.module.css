@@ -427,9 +427,6 @@
   .main4{
       height: 1000px;
   }
-  .boxParagraphe{
-    overflow :initial;
-  }
 }
 @media screen and (max-width: 1354px) {
     .blockPresentation {

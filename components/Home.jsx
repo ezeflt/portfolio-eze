@@ -50,7 +50,7 @@ function Home() {
   console.error = masquerErreursEtAvertissements;
   console.warn = masquerErreursEtAvertissements;
 
-  const [link, setLink] = useState(0.6);
+  const [link, setLink] = useState(0.5);
   const [typed, setTyped]= useState(true);
   const [activeBackground, setActiveBackground]=useState(true);
   const [props, setProps] = useState(false);
@@ -64,7 +64,6 @@ function Home() {
   const TL = gsap.timeline()
 
   useEffect(()=>{
-
   !props &&(
     setTimeout(async()=>{
       window.location.replace('#body');
@@ -101,7 +100,7 @@ function Home() {
         await setProps(true),
         setTyped(false)
       )
-    },5)
+    },5.5)
     )
 
     TL.to(backgroundT.current,
@@ -118,13 +117,13 @@ function Home() {
           onLeave:()=> {
             setLink(0)
             setTimeout(()=>{
-              setLink(0.6)
+              setLink(0.5)
             },1000)
           },
           onEnterBack:()=> {
             setLink(0)
             setTimeout(()=>{
-              setLink(0.6)
+              setLink(0.5)
             },1000)
         },
         }
@@ -143,13 +142,13 @@ function Home() {
           onLeave:()=> {
             setLink(0)
             setTimeout(()=>{
-              setLink(0.45)
+              setLink(0.35)
             },1000)
           },
           onEnterBack:()=> {
             setLink(0)
             setTimeout(()=>{
-              setLink(0.45)
+              setLink(0.35)
             },1000)
         },
         }
@@ -191,9 +190,10 @@ function Home() {
     <>
     {typed&&(
     <div id='startAnimation' className={styles.g}>
-        <Typed
+<Typed
         className={styles.spantxt}
         strings={[
+            '',
             'Welcome to my website',
             'have a good time',
           ]}
