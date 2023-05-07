@@ -62,7 +62,7 @@ const Background = (props) => {
                 value: '#10101a',
             },
         },
-        fpsLimit: 60,
+        fpsLimit: 30,
         interactivity: {
             events: {
                 onClick: {
@@ -70,7 +70,7 @@ const Background = (props) => {
                     // mode: "push",
                 },
                 onHover: {
-                    enable: true,
+                    enable: false,
                     mode: ["bubble", "repulse"],
                 },
                 resize: true,
