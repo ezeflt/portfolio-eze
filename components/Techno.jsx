@@ -4,7 +4,6 @@ import gsap from 'gsap'
 import styles from '../styles/Techno.module.css'
 import { useRef } from 'react';
 import { useEffect } from 'react';
-import { faL } from '@fortawesome/free-solid-svg-icons';
 
 
 const Techno = () => {
@@ -55,8 +54,11 @@ const Techno = () => {
           }
 
         const resize = async () => {
-            if (window.innerWidth < 1300) {
-                setScale('0.85');
+            if (window.innerWidth <= 1189) {
+                setImgFloat(false);
+            }
+            if (window.innerWidth > 1189) {
+                setImgFloat(true);
             }
             if (window.innerWidth < 1275) {
                 setScale('0.85');
@@ -74,13 +76,12 @@ const Techno = () => {
             }  
             if (window.innerWidth < 1200) {
                 setScale('0.9');
-            } if (window.innerWidth > 1200) {
+            } 
+            if (window.innerWidth > 1200) {
                 setScale('1');
-            } if (window.innerWidth <= 1189) {
-                setImgFloat(false);
-            }
-            if (window.innerWidth > 1189) {
-                setImgFloat(true);
+            } 
+            if (window.innerWidth < 1300) {
+                setScale('0.85');
             }
             if (window.innerWidth < 1380) {
             setScale('0.95');
@@ -299,10 +300,6 @@ const Techno = () => {
                 <div className={styles.boxBorderSkillSafari} key={i} onClick={()=>(
                     console.log('oou'),
                     gsap.fromTo('#imgRef', {x:'30px', autoAlpha:0},{x:'0px', autoAlpha:1}),
-                    // setImageBox(data.src),
-                    // setTest(!test),
-                    // setTitleBox(data.title),
-                    // setGsapAnime(!gsapAnime),
                     setSafariImageBox(data.src)
                 )}>
                     <img src={data.src} className={click ? `${styles.img}`:`${styles.imgSafari}`} />
